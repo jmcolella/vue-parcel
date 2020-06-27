@@ -1,0 +1,23 @@
+{
+  "name": "vue-parcel",
+  "version": "0.0.1",
+  "description": "Small Todo App to learn Vue.js and Parcel",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel ./src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmcolella/vue-parcel.git"
+  },
+  "author": "John Colella",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jmcolella/vue-parcel/issues"
+  },
+  "homepage": "https://github.com/jmcolella/vue-parcel#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}
