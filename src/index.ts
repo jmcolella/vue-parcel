@@ -1,8 +1,7 @@
-function hello(name: string) {
-  console.log(`Hello ${name}!`);
-}
+import Vue from 'vue';
+import App from './app/index.vue';
 
-console.log(hello('Matt'));
+new Vue({ render: createElement => createElement(App) }).$mount('#app');
 
 if (module.hot) {
   module.hot.accept();

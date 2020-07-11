@@ -20,7 +20,15 @@
   "homepage": "https://github.com/jmcolella/vue-parcel#readme",
   "devDependencies": {
     "@types/parcel-env": "0.0.0",
+    "@types/vue": "^2.0.0",
+    "@vue/component-compiler-utils": "^3.1.2",
     "parcel": "1.12.4",
-    "typescript": "^3.9.5"
+    "pug": "^3.0.0",
+    "typescript": "^3.9.5",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "dependencies": {
+    "vue": "^2.6.11",
+    "vue-hot-reload-api": "^2.3.4"
   }
 }
