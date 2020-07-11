@@ -1,16 +1,40 @@
 <template lang="jade">
-  <Greeting friend="John" v-bind:stuff=stuff />
+  <div>
+    <TodoList v-bind:todos="todos"></TodoList>
+    <TodoForm @addTodo="handleTodoAdd"></TodoForm>
+  </div>
 </template>
 
-<script>
-  import Greeting from './components/greeting';
+<script lang="ts">
+  import TodoForm from './components/TodoForm/index.vue';
+  import TodoList from './components/TodoList/index.vue';
+
+  interface Data {
+    todos: string[],
+  }
+
+  interface Methods {
+    handleTodoAdd: (todo: string) => void,
+  }
 
   export default {
-    data: () => ({
-      stuff: ['hi', 'my', 'friend']
-    }),
+    data(): Data {
+      return {
+        todos: [],
+      }
+    },
+    methods: {
+      handleTodoAdd(todo: string) {
+        const currentTodos = this.$data.todos;
+
+        const nextTodos = this.$data.todos.concat([ todo ]);
+
+        this.$data.todos = nextTodos;
+      }
+    } as Methods,
     components: {
-      Greeting,
-    }
+      TodoForm,
+      TodoList,
+    },
   };
 </script>
