@@ -1,7 +1,7 @@
 <template lang="jade">
   <div>
-    <TodoList v-bind:todos="todos" @removeTodo="handleTodoRemove"></TodoList>
-    <TodoForm @addTodo="handleTodoAdd"></TodoForm>
+    <TodoList v-bind:todos="todos" @removeTodo="handleTodoRemove" @editTodo="handleEditTodo"></TodoList>
+    <TodoForm @onSubmit="handleTodoAdd"></TodoForm>
   </div>
 </template>
 
@@ -43,6 +43,9 @@
       handleTodoRemove(id: number) {
         this.$data.todos = this.$data.todos.filter((todo: Todo) => todo.id !== id);
       },
+      handleEditTodo(newTodo: Todo) {
+        this.$data.todos = this.$data.todos.map((todo: Todo) => todo.id === newTodo.id ? newTodo : todo);
+      }
     } as Methods,
     components: {
       TodoForm,
