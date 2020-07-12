@@ -1,6 +1,6 @@
 <template lang="jade">
   <div>
-    <TodoList v-bind:todos="todos"></TodoList>
+    <TodoList v-bind:todos="todos" @removeTodo="handleTodoRemove"></TodoList>
     <TodoForm @addTodo="handleTodoAdd"></TodoForm>
   </div>
 </template>
@@ -10,27 +10,39 @@
   import TodoList from './components/TodoList/index.vue';
 
   interface Data {
-    todos: string[],
+    todos: Todo[],
   }
 
   interface Methods {
     handleTodoAdd: (todo: string) => void,
+    handleTodoRemove: (id: number) => void,
   }
 
   export default {
     data(): Data {
       return {
-        todos: [],
+        todos: [
+          {
+            id: 1,
+            todo: 'yes',
+          }
+        ],
       }
     },
     methods: {
       handleTodoAdd(todo: string) {
         const currentTodos = this.$data.todos;
 
-        const nextTodos = this.$data.todos.concat([ todo ]);
+        const nextTodos = this.$data.todos.concat([{
+          id: currentTodos.length + 1,
+          todo,
+        }]);
 
         this.$data.todos = nextTodos;
-      }
+      },
+      handleTodoRemove(id: number) {
+        this.$data.todos = this.$data.todos.filter((todo: Todo) => todo.id !== id);
+      },
     } as Methods,
     components: {
       TodoForm,

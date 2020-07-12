@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "./src/",
+    "baseUrl": "./src/app",
     "lib": [
       "ES5",
       "ES6",
