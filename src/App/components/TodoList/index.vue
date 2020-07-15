@@ -1,8 +1,8 @@
 <template lang="jade">
-  <div>
+  <div class="container">
     <h1 v-if="noTodos">Add some Todos!</h1>
 
-    <div v-else v-for="t in todos">
+    <div class="item-wrapper" v-else v-for="t in todos">
       <TodoForm v-if="editTodoId === t.id" :initialTodo="t.todo" :editing=true @onSubmit="handleEditTodo"></TodoForm>
       <TodoItem v-else :todo="t" :handleSelectEditTodo="handleSelectEditTodo" :handleRemoveTodo="handleRemoveTodo"></TodoItem>
     </div>
@@ -61,4 +61,21 @@
     },
   })
 </script>
+
+<style scoped>
+  .container {
+    margin-top: calc(var(--base-spacer) * 2);
+  }
+
+  .item-wrapper {
+    display: grid;
+    margin-bottom: var(--base-spacer);
+    min-height: calc(var(--base-spacer) * 3.5);
+  }
+
+  .item-wrapper:last-of-type {
+    margin-bottom: 0;
+  }
+</style>
+
 

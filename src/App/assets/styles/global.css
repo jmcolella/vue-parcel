@@ -1,5 +1,19 @@
 :root {
+  /* Colors */
+  --brand-color: #AF929D;
+  /* --brand-accent: #D2D6EF; */
+  --brand-accent: #104547;
+  --brand-close: #aa4465;
+  --text-grey: #4B5358;
+  --text-white: #fff;
+
+  /* Layouts */
+  --desktop-min: 1024px;
+  --tablet-min: 768px;
+
+  /* Units */
   --base-spacer: 1rem;
+  --base-border-radius: 5px;
 }
 
 * {
@@ -12,4 +26,8 @@
 
 html, body {
   height: 100%;
+}
+
+body {
+  background-color: var(--brand-color);
 }
