@@ -1,5 +1,5 @@
 <template lang="jade">
-  <div>
+  <div class="app-container">
     <TodoList v-bind:todos="todos" @removeTodo="handleTodoRemove" @editTodo="handleEditTodo"></TodoList>
     <TodoForm @onSubmit="handleTodoAdd"></TodoForm>
   </div>
@@ -53,3 +53,12 @@
     },
   };
 </script>
+
+<style scoped>
+  .app-container {
+    height: 100%;
+    margin: 0 auto;
+    max-width: 1024px;
+    padding: calc(var(--base-spacer) * 4) calc(var(--base-spacer) * 2);
+  }
+</style>
